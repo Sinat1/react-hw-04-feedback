@@ -1,26 +1,26 @@
 import {
   FeedBack,
-  Feedback__text,
-  Feedback__list,
-  Feedback__listItem,
-  Feedback__listItemBtn,
+  FeedbackText,
+  FeedbackList,
+  FeedbackListItem,
+  FeedbackListItemBtn,
 } from './Feedback.styled';
 
 const Feedback = ({ onHandleFeedback, options, onCapitalizeFirstLetter }) => (
   <FeedBack>
-    <Feedback__text>Please leave feedback</Feedback__text>
-    <Feedback__list>
+    <FeedbackText>Please leave feedback</FeedbackText>
+    <FeedbackList>
       {options.map(option => (
-        <Feedback__listItem key={option}>
-          <Feedback__listItemBtn
+        <FeedbackListItem key={option}>
+          <FeedbackListItemBtn
             type="button"
             onClick={() => onHandleFeedback(option)}
           >
             {onCapitalizeFirstLetter(option)}
-          </Feedback__listItemBtn>
-        </Feedback__listItem>
+          </FeedbackListItemBtn>
+        </FeedbackListItem>
       ))}
-    </Feedback__list>
+    </FeedbackList>
   </FeedBack>
 );
 

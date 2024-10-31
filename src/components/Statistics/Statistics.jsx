@@ -1,10 +1,10 @@
 import {
   Stats,
-  Stats__text,
-  Stats__list,
-  Stats__listItem,
-  Stats__total,
-  Stats__positiveRate,
+  StatsText,
+  StatsList,
+  StatsListItem,
+  StatsTotal,
+  StatsPositiveRate,
 } from './Statistics.styled';
 
 const Statistics = ({
@@ -15,21 +15,21 @@ const Statistics = ({
   onCountPositiveFeedbackPercentage,
 }) => (
   <Stats>
-    <Stats__text>Statistics</Stats__text>
-    <Stats__positiveRate>
+    <StatsText>Statistics</StatsText>
+    <StatsPositiveRate>
       Positive feedback, %: <span>{onCountPositiveFeedbackPercentage()}</span>
-    </Stats__positiveRate>
-    <Stats__list>
+    </StatsPositiveRate>
+    <StatsList>
       {options.map(option => (
-        <Stats__listItem key={option}>
+        <StatsListItem key={option}>
           <span>{onCapitalizeFirstLetter(option)}: </span>
           {option === 'good' ? good : option === 'neutral' ? neutral : bad}
-        </Stats__listItem>
+        </StatsListItem>
       ))}
-    </Stats__list>
-    <Stats__total>
+    </StatsList>
+    <StatsTotal>
       Total: <span>{onCountTotalFeedback()}</span>
-    </Stats__total>
+    </StatsTotal>
   </Stats>
 );
 

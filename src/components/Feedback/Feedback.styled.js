@@ -2,19 +2,19 @@ import styled from 'styled-components';
 
 export const FeedBack = styled.section``;
 
-export const Feedback__text = styled.p`
+export const FeedbackText = styled.p`
   font-size: 30px;
   font-weight: 700;
 `;
 
-export const Feedback__list = styled.ul`
+export const FeedbackList = styled.ul`
   display: flex;
   justify-content: center;
   list-style: none;
   padding: 0;
 `;
 
-export const Feedback__listItem = styled.li`
+export const FeedbackListItem = styled.li`
   padding-right: 30px;
 
   &: nth-child(3) {
@@ -22,7 +22,7 @@ export const Feedback__listItem = styled.li`
   }
 `;
 
-export const Feedback__listItemBtn = styled.button`
+export const FeedbackListItemBtn = styled.button`
   width: 70px;
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
