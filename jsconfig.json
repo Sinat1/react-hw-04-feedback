@@ -2,5 +2,5 @@
   "compilerOptions": {
     "baseUrl": "src"
   },
-  "include": ["src"]
+  "include": ["src", "src/components/.practice/ColorPicker", "src/components/.practice/DropDown", "src/components/.practice/Counter", "src/components/.practice/TodoList"]
 }
