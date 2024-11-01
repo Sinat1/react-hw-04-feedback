@@ -1,15 +1,5 @@
 import styled from 'styled-components';
 
-export const Stats = styled.section`
-  margin-bottom: 30px;
-`;
-
-export const StatsText = styled.p`
-  font-size: 30px;
-  font-weight: 700;
-  text-align: center;
-`;
-
 export const StatsList = styled.ul`
   width: 250px;
   padding: 0;

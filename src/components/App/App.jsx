@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import { AppContainer } from './App.styled.js';
-import Feedback from 'components/Feedback';
+import Section from 'components/Section/';
+import FeedbackOptions from 'components/Feedback';
 import Statistics from 'components/Statistics';
+import Notification from 'components/Notification';
 
 class App extends Component {
   state = {
@@ -29,22 +31,31 @@ class App extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+    const total = good + neutral + bad;
     return (
       <AppContainer>
-        <Feedback
-          onHandleFeedback={this.handleFeedback}
-          options={['good', 'neutral', 'bad']}
-          onCapitalizeFirstLetter={this.capitalizeFirstLetter}
-        />
-        <Statistics
-          options={['good', 'neutral', 'bad']}
-          optionsCount={{ good, neutral, bad }}
-          onCapitalizeFirstLetter={this.capitalizeFirstLetter}
-          onCountTotalFeedback={this.countTotalFeedback}
-          onCountPositiveFeedbackPercentage={
-            this.countPositiveFeedbackPercentage
-          }
-        />
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            onHandleFeedback={this.handleFeedback}
+            options={['good', 'neutral', 'bad']}
+            onCapitalizeFirstLetter={this.capitalizeFirstLetter}
+          />
+        </Section>
+        <Section title="Statistics">
+          {total === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              options={['good', 'neutral', 'bad']}
+              optionsCount={{ good, neutral, bad }}
+              onCapitalizeFirstLetter={this.capitalizeFirstLetter}
+              onCountTotalFeedback={this.countTotalFeedback}
+              onCountPositiveFeedbackPercentage={
+                this.countPositiveFeedbackPercentage
+              }
+            />
+          )}
+        </Section>
       </AppContainer>
     );
   }

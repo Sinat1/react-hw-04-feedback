@@ -1,27 +1,33 @@
 import {
-  FeedBack,
-  FeedbackText,
   FeedbackList,
   FeedbackListItem,
   FeedbackListItemBtn,
 } from './Feedback.styled';
+import PropTypes from 'prop-types';
 
-const Feedback = ({ onHandleFeedback, options, onCapitalizeFirstLetter }) => (
-  <FeedBack>
-    <FeedbackText>Please leave feedback</FeedbackText>
-    <FeedbackList>
-      {options.map(option => (
-        <FeedbackListItem key={option}>
-          <FeedbackListItemBtn
-            type="button"
-            onClick={() => onHandleFeedback(option)}
-          >
-            {onCapitalizeFirstLetter(option)}
-          </FeedbackListItemBtn>
-        </FeedbackListItem>
-      ))}
-    </FeedbackList>
-  </FeedBack>
+const FeedbackOptions = ({
+  onHandleFeedback,
+  options,
+  onCapitalizeFirstLetter,
+}) => (
+  <FeedbackList>
+    {options.map(option => (
+      <FeedbackListItem key={option}>
+        <FeedbackListItemBtn
+          type="button"
+          onClick={() => onHandleFeedback(option)}
+        >
+          {onCapitalizeFirstLetter(option)}
+        </FeedbackListItemBtn>
+      </FeedbackListItem>
+    ))}
+  </FeedbackList>
 );
 
-export default Feedback;
+FeedbackOptions.propTypes = {
+  onHandleFeedback: PropTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
+  onCapitalizeFirstLetter: PropTypes.func.isRequired,
+};
+
+export default FeedbackOptions;

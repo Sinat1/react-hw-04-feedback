@@ -1,11 +1,10 @@
 import {
-  Stats,
-  StatsText,
   StatsList,
   StatsListItem,
   StatsTotal,
   StatsPositiveRate,
 } from './Statistics.styled';
+import PropTypes from 'prop-types';
 
 const Statistics = ({
   options,
@@ -14,8 +13,7 @@ const Statistics = ({
   onCountTotalFeedback,
   onCountPositiveFeedbackPercentage,
 }) => (
-  <Stats>
-    <StatsText>Statistics</StatsText>
+  <>
     <StatsPositiveRate>
       Positive feedback, %: <span>{onCountPositiveFeedbackPercentage()}</span>
     </StatsPositiveRate>
@@ -30,7 +28,19 @@ const Statistics = ({
     <StatsTotal>
       Total: <span>{onCountTotalFeedback()}</span>
     </StatsTotal>
-  </Stats>
+  </>
 );
+
+Statistics.propTypes = {
+  options: PropTypes.array.isRequired,
+  optionsCount: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }).isRequired,
+  onCapitalizeFirstLetter: PropTypes.func.isRequired,
+  onCountTotalFeedback: PropTypes.func.isRequired,
+  onCountPositiveFeedbackPercentage: PropTypes.func.isRequired,
+};
 
 export default Statistics;
